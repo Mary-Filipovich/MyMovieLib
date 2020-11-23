@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark_grey"
+    tools:context=".MovieDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="16dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_v_guideline_screen_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_v_guideline_screen_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
+
+        <ImageView
+            android:id="@+id/amd_iv_big_poster"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/amd_iv_cd_poster"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_poster"
+            app:layout_constraintBottom_toTopOf="@id/amd_h_guideline_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/poster_gradient"
+            app:layout_constraintBottom_toTopOf="@id/amd_h_guideline_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_h_guideline_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <LinearLayout
+            android:id="@+id/amd_btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toTopOf="@id/amd_h_guideline_back_btn">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/amd_iv_cd_back_arrow"
+                android:src="@drawable/ic_btn_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/amd_tv_back_btn_text"
+                android:textColor="@color/white_text_50_opacity"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_h_guideline_age_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <TextView
+            android:id="@+id/amd_tv_age_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_age_limit"
+            android:padding="2dp"
+            android:text="@string/amd_tv_age_limit_text"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toTopOf="@id/amd_h_guideline_age_limit" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_h_guideline_poster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <TextView
+            android:id="@+id/amd_tv_movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:shadowColor="@color/black_50_opacity"
+            android:shadowDy="12"
+            android:shadowRadius="12"
+            android:text="@string/amd_tv_movie_title_text"
+            android:textColor="@color/amd_title_text_color"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_screen_end"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_age_limit" />
+
+        <TextView
+            android:id="@+id/amd_tv_tag_line"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/amd_tv_tag_line_text"
+            android:textColor="@color/amd_tag_line_text_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_screen_end"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_movie_title" />
+
+        <ImageView
+            android:id="@+id/amd_iv_star1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/amd_iv_cd_star"
+            android:src="@drawable/ic_colored_star"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_tag_line" />
+
+        <ImageView
+            android:id="@+id/amd_iv_star2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/amd_iv_cd_star"
+            android:src="@drawable/ic_colored_star"
+            app:layout_constraintStart_toEndOf="@id/amd_iv_star1"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_tag_line" />
+
+        <ImageView
+            android:id="@+id/amd_iv_star3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/amd_iv_cd_star"
+            android:src="@drawable/ic_colored_star"
+            app:layout_constraintStart_toEndOf="@id/amd_iv_star2"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_tag_line" />
+
+        <ImageView
+            android:id="@+id/amd_iv_star4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/amd_iv_cd_star"
+            android:src="@drawable/ic_colored_star"
+            app:layout_constraintStart_toEndOf="@id/amd_iv_star3"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_tag_line" />
+
+        <ImageView
+            android:id="@+id/amd_iv_star5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/amd_iv_cd_star"
+            android:src="@drawable/ic_grey_star"
+            app:layout_constraintStart_toEndOf="@id/amd_iv_star4"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_tag_line" />
+
+        <TextView
+            android:id="@+id/amd_tv_review_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/amd_tv_review_number_text"
+            android:textColor="@color/amd_reviews_number_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/amd_iv_star1"
+            app:layout_constraintStart_toEndOf="@id/amd_iv_star5"
+            app:layout_constraintTop_toTopOf="@id/amd_iv_star1" />
+
+        <TextView
+            android:id="@+id/amd_tv_storyline_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:shadowColor="@color/black_50_opacity"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/amd_tv_storyline_title_text"
+            android:textColor="@color/amd_title_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_review_number" />
+
+        <TextView
+            android:id="@+id/amd_tv_storyline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="@string/amd_tv_storyline"
+            android:textColor="@color/white_text_75_opacity"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_screen_end"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_storyline_title" />
+
+        <TextView
+            android:id="@+id/amd_tv_cast_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:shadowColor="@color/black_50_opacity"
+            android:shadowDy="6"
+            android:shadowRadius="12"
+            android:text="@string/amd_tv_cast_title_text"
+            android:textColor="@color/amd_title_text_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_storyline" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/amd_iv_actor1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/robert_downey"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_27"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/amd_tv_cast_title"
+            app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/robert_downey_jr"
+            android:textColor="@color/amd_actor_name_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/amd_iv_actor1"
+            app:layout_constraintStart_toStartOf="@id/amd_iv_actor1"
+            app:layout_constraintTop_toBottomOf="@id/amd_iv_actor1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_v_guideline_27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.27" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/amd_iv_actor2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/chris_evans"
+            app:layout_constraintBottom_toBottomOf="@id/amd_iv_actor1"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_50"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_27"
+            app:layout_constraintTop_toTopOf="@id/amd_iv_actor1"
+            app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/chris_evans"
+            android:textColor="@color/amd_actor_name_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/amd_iv_actor2"
+            app:layout_constraintStart_toStartOf="@id/amd_iv_actor2"
+            app:layout_constraintTop_toBottomOf="@id/amd_iv_actor2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_v_guideline_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/amd_iv_actor3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mark_ruffalo"
+            app:layout_constraintBottom_toBottomOf="@id/amd_iv_actor1"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_73"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_50"
+            app:layout_constraintTop_toTopOf="@id/amd_iv_actor1"
+            app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/mark_ruffalo"
+            android:textColor="@color/amd_actor_name_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/amd_iv_actor3"
+            app:layout_constraintStart_toStartOf="@id/amd_iv_actor3"
+            app:layout_constraintTop_toBottomOf="@id/amd_iv_actor3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/amd_v_guideline_73"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.73" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/amd_iv_actor4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/chris_hemsworth"
+            app:layout_constraintBottom_toBottomOf="@id/amd_iv_actor1"
+            app:layout_constraintEnd_toEndOf="@id/amd_v_guideline_screen_end"
+            app:layout_constraintStart_toStartOf="@id/amd_v_guideline_73"
+            app:layout_constraintTop_toTopOf="@id/amd_iv_actor1"
+            app:shapeAppearanceOverlay="@style/circleImageViewStyle" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/chris_hemsworth"
+            android:textColor="@color/amd_actor_name_text_color"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/amd_iv_actor4"
+            app:layout_constraintStart_toStartOf="@id/amd_iv_actor4"
+            app:layout_constraintTop_toBottomOf="@id/amd_iv_actor4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
