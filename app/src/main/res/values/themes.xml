@@ -19,4 +19,10 @@
         <item name="cornerSize">4dp</item>
     </style>
 
+    <style name="actorNameTextViewStyle">
+        <item name="android:textColor">@color/gainsboro</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
