@@ -1,12 +1,9 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">MyMovieLib</string>
-    <string name="am_tv_open_details_activity_text">Tap to open MovieDetailsActivity</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="amd_iv_cd_back_arrow">back button arrow</string>
     <string name="amd_iv_cd_poster">Movie poster</string>
     <string name="amd_tv_back_btn_text">Back</string>
     <string name="amd_iv_cd_star">rating_star</string>
-
-    <string name="amd_tv_storyline" >After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
     <string name="amd_tv_age_limit_text">13+</string>
     <string name="amd_tv_movie_title_text">Avengers: End Game</string>
     <string name="amd_tv_tag_line_text">Action, Adventure, Fantasy</string>
