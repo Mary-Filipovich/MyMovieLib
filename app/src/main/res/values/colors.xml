@@ -12,8 +12,14 @@
     <color name="white_50_opacity">#80FFFFFF</color>
     <color name="dolphin">#6D6D80</color>
     <color name="midnight_express_0_opacity">#00191926</color>
+    <color name="midnight_express_50_opacity">#25191926</color>
     <color name="midnight_express">#191926</color>
     <color name="black_50_opacity">#80000000</color>
     <color name="black">#FF000000</color>
     <color name="radical_red">#FF3466</color>
+
+    <color name="blue_zodiac_75_opacity">#BF404056</color>
+    <color name="valhalla_55_opacity">#8C222232</color>
+    <color name="martinique_50_opacity">#803B3B4D</color>
+    <color name="comet_50_opacity">#80636375</color>
 </resources>

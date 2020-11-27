@@ -7,7 +7,7 @@
     <string name="amd_iv_cd_star">rating_star</string>
 
     <string name="amd_tv_storyline" >After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
-    <string name="amd_tv_age_limit_text">13+</string>
+    <string name="age_limit_text">13+</string>
     <string name="amd_tv_movie_title_text">Avengers: End Game</string>
     <string name="amd_tv_tag_line_text">Action, Adventure, Fantasy</string>
     <string name="amd_tv_review_number_text">125 REVIEWS</string>
@@ -17,4 +17,7 @@
     <string name="chris_evans">Chris Evans</string>
     <string name="mark_ruffalo">Mark Ruffalo</string>
     <string name="chris_hemsworth">Chris Hemsworth</string>
+    <string name="fml_tv_text_movies_list">Movies list</string>
+    <string name="fml_iv_cd_like_button">Like button</string>
+    <string name="fml_tv_text_duration">137 MIN</string>
 </resources>
