@@ -31,16 +31,27 @@ class MainActivity : AppCompatActivity(), MoviesListFragment.OnCardClickListener
         movieDetailFragment?.apply {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.am_container, this, MOVIE_DETAILS_FRAGMENT_TAG)
+                .addToBackStack(null)
                 .commit()
         }
 
     }
 
     override fun onBackButtonPressed() {
-        moviesListFragment?.apply {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.am_container, this, MOVIES_LIST_FRAGMENT_TAG)
-                .commit()
+        onBackPressed()
+    }
+
+    override fun onBackPressed() {
+        if (!popBackStack()) super.onBackPressed()
+    }
+
+    private fun popBackStack(): Boolean{
+        val backStackEntryCount = supportFragmentManager.backStackEntryCount
+        return if (backStackEntryCount == 0) {
+            false
+        } else {
+            supportFragmentManager.popBackStack()
+            true
         }
     }
 
