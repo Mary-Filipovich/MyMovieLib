@@ -36,8 +36,8 @@ class MovieDetailFragment : Fragment() {
     }
 
     override fun onDetach() {
-        super.onDetach()
         mListener = null
+        super.onDetach()
     }
 
     companion object {

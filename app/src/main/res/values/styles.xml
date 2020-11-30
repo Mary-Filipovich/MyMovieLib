@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ActorImageViewStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="PosterCardImageViewStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">6dp</item>
+        <item name="cornerSizeTopRight">6dp</item>
+    </style>
+
+    <style name="ActorNameTextViewStyle">
+        <item name="android:textColor">@color/gainsboro</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RatingBarOnMovieDetailsStyle" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="minHeight">4dp</item>
+        <item name="minWidth">4dp</item>
+        <item name="colorControlNormal">@color/white_smoke</item>
+        <item name="colorControlActivated">@color/radical_red</item>
+    </style>
+
+    <style name="RatingBarOnMoviesListStyle" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="minHeight">2dp</item>
+        <item name="minWidth">2dp</item>
+        <item name="colorControlNormal">@color/white_smoke</item>
+        <item name="colorControlActivated">@color/radical_red</item>
+    </style>
+
+    <style name="FmlTextViewFragmentTitleStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FmlTextViewAgeLimitStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:paddingStart">2dp</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:background">@drawable/bg_age_limit</item>
+    </style>
+
+    <style name="FmlTextViewTagLineStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/radical_red</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+    </style>
+
+    <style name="FmlTextViewReviewNumberStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/dolphin</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FmlTextViewMovieTitleStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/white_smoke</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+    <style name="FmlTextViewMovieDurationStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/dolphin</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+    </style>
+
+</resources>

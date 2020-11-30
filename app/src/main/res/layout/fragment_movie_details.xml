@@ -120,12 +120,12 @@
 
         <androidx.appcompat.widget.AppCompatRatingBar
             android:id="@+id/fmd_rating_bar_stars"
-            style="@style/RatingBarOnMovieDetails"
+            style="@style/RatingBarOnMovieDetailsStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:progress="80"
-            android:theme="@style/RatingBarOnMovieDetails"
+            android:theme="@style/RatingBarOnMovieDetailsStyle"
             app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"
             app:layout_constraintTop_toBottomOf="@id/fmd_tv_tag_line" />
 

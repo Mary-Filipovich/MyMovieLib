@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/fml_tv_movies_list"
-            style="@style/FmlTextViewFragmentTitle"
+            style="@style/FmlTextViewFragmentTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fml_tv_text_movies_list"
@@ -84,7 +84,7 @@
 
         <TextView
             android:id="@+id/fml_tv_age_limit"
-            style="@style/FmlTextViewAgeLimit"
+            style="@style/FmlTextViewAgeLimitStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/age_limit_text"
@@ -104,7 +104,7 @@
 
         <TextView
             android:id="@+id/fml_tv_tag_line"
-            style="@style/FmlTextViewTagLine"
+            style="@style/FmlTextViewTagLineStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/amd_tv_tag_line_text"
@@ -114,20 +114,20 @@
 
         <androidx.appcompat.widget.AppCompatRatingBar
             android:id="@+id/fml_rating_bar_stars"
-            style="@style/RatingBarOnMoviesList"
+            style="@style/RatingBarOnMoviesListStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:progress="80"
             android:scaleX="0.8"
             android:scaleY="0.8"
-            android:theme="@style/RatingBarOnMoviesList"
+            android:theme="@style/RatingBarOnMoviesListStyle"
             app:layout_constraintBottom_toBottomOf="@id/fml_siv_card_poster"
             app:layout_constraintStart_toStartOf="@id/fml_v_card" />
 
         <TextView
             android:id="@+id/fml_tv_review_number"
-            style="@style/FmlTextViewReviewNumber"
+            style="@style/FmlTextViewReviewNumberStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/amd_tv_review_number_text"
@@ -137,7 +137,7 @@
 
         <TextView
             android:id="@+id/fml_tv_movie_title"
-            style="@style/FmlTextViewMovieTitle"
+            style="@style/FmlTextViewMovieTitleStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/amd_tv_movie_title_text"
@@ -147,7 +147,7 @@
 
         <TextView
             android:id="@+id/fml_tv_duration"
-            style="@style/FmlTextViewMovieDuration"
+            style="@style/FmlTextViewMovieDurationStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/fml_tv_text_duration"

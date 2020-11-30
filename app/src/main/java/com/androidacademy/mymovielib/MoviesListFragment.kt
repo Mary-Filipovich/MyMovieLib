@@ -41,10 +41,9 @@ class MoviesListFragment : Fragment() {
     }
 
     private fun changeLikeState() {
-        when (isMovieLiked) {
-            false -> likeButton.setImageResource(R.drawable.ic_like)
-            true -> likeButton.setImageResource(R.drawable.ic_like_active)
-        }
+        likeButton.setImageResource(
+            if (isMovieLiked) R.drawable.ic_like_active else R.drawable.ic_like
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
