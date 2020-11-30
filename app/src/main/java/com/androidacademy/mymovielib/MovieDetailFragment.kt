@@ -15,11 +15,16 @@ class MovieDetailFragment : Fragment() {
         fun onBackButtonPressed()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_movie_details, container, false)
-        view?.findViewById<TextView>(R.id.fmd_tv_back_button)?.apply {
-            setOnClickListener { mListener?.onBackButtonPressed() }
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view: View = inflater.inflate(R.layout.fragment_movie_details, container, false)
+
+        val backButton: TextView = view.findViewById(R.id.fmd_tv_back_button)
+        backButton.setOnClickListener { mListener?.onBackButtonPressed() }
+
         return view
     }
 

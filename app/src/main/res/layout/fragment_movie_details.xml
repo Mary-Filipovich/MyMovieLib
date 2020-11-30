@@ -120,14 +120,14 @@
 
         <androidx.appcompat.widget.AppCompatRatingBar
             android:id="@+id/fmd_rating_bar_stars"
-            style="@style/ratingBarOnMovieDetails"
+            style="@style/RatingBarOnMovieDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:progress="80"
-            android:theme="@style/ratingBarOnMovieDetails"
-            app:layout_constraintTop_toBottomOf="@id/fmd_tv_tag_line"
-            app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"/>
+            android:theme="@style/RatingBarOnMovieDetails"
+            app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"
+            app:layout_constraintTop_toBottomOf="@id/fmd_tv_tag_line" />
 
         <TextView
             android:id="@+id/fmd_tv_review_number"
@@ -198,14 +198,14 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"
             app:layout_constraintTop_toBottomOf="@id/fmd_tv_cast_title"
-            app:shapeAppearanceOverlay="@style/actorImageViewStyle" />
+            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/robert_downey_jr"
-            android:textAppearance="@style/actorNameTextViewStyle"
+            android:textAppearance="@style/ActorNameTextViewStyle"
             app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor1"
             app:layout_constraintStart_toStartOf="@id/fmd_iv_actor1"
             app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor1" />
@@ -222,14 +222,14 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor1"
             app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"
-            app:shapeAppearanceOverlay="@style/actorImageViewStyle" />
+            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/chris_evans"
-            android:textAppearance="@style/actorNameTextViewStyle"
+            android:textAppearance="@style/ActorNameTextViewStyle"
             app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor2"
             app:layout_constraintStart_toStartOf="@id/fmd_iv_actor2"
             app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor2" />
@@ -246,14 +246,14 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor2"
             app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"
-            app:shapeAppearanceOverlay="@style/actorImageViewStyle" />
+            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/mark_ruffalo"
-            android:textAppearance="@style/actorNameTextViewStyle"
+            android:textAppearance="@style/ActorNameTextViewStyle"
             app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor3"
             app:layout_constraintStart_toStartOf="@id/fmd_iv_actor3"
             app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor3" />
@@ -270,14 +270,14 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor3"
             app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"
-            app:shapeAppearanceOverlay="@style/actorImageViewStyle" />
+            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="@string/chris_hemsworth"
-            android:textAppearance="@style/actorNameTextViewStyle"
+            android:textAppearance="@style/ActorNameTextViewStyle"
             app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor4"
             app:layout_constraintStart_toStartOf="@id/fmd_iv_actor4"
             app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor4" />
