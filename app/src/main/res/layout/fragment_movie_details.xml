@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/midnight_express">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,101 +186,101 @@
             app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"
             app:layout_constraintTop_toBottomOf="@id/fmd_tv_storyline" />
 
-<!--        <com.google.android.material.imageview.ShapeableImageView-->
-<!--            android:id="@+id/fmd_iv_actor1"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/robert_downey"-->
-<!--            app:layout_constraintDimensionRatio="H,1:1"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/fmd_iv_actor2"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fmd_tv_cast_title"-->
-<!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/fmd_iv_actor1"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            android:src="@drawable/robert_downey"-->
+        <!--            app:layout_constraintDimensionRatio="H,1:1"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/fmd_iv_actor2"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/fmd_v_guideline_screen_start"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fmd_tv_cast_title"-->
+        <!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
 
-<!--        <TextView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="6dp"-->
-<!--            android:text="@string/robert_downey_jr"-->
-<!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor1"-->
-<!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor1"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor1" />-->
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="6dp"-->
+        <!--            android:text="@string/robert_downey_jr"-->
+        <!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor1"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor1"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor1" />-->
 
-<!--        <com.google.android.material.imageview.ShapeableImageView-->
-<!--            android:id="@+id/fmd_iv_actor2"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/chris_evans"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/fmd_iv_actor1"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/fmd_iv_actor3"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor1"-->
-<!--            app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"-->
-<!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/fmd_iv_actor2"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            android:src="@drawable/chris_evans"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/fmd_iv_actor1"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/fmd_iv_actor3"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor1"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"-->
+        <!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
 
-<!--        <TextView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="6dp"-->
-<!--            android:text="@string/chris_evans"-->
-<!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor2"-->
-<!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor2"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor2" />-->
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="6dp"-->
+        <!--            android:text="@string/chris_evans"-->
+        <!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor2"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor2"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor2" />-->
 
-<!--        <com.google.android.material.imageview.ShapeableImageView-->
-<!--            android:id="@+id/fmd_iv_actor3"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/mark_ruffalo"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/fmd_iv_actor1"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/fmd_iv_actor4"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor2"-->
-<!--            app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"-->
-<!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/fmd_iv_actor3"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            android:src="@drawable/mark_ruffalo"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/fmd_iv_actor1"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/fmd_iv_actor4"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor2"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"-->
+        <!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
 
-<!--        <TextView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="6dp"-->
-<!--            android:text="@string/mark_ruffalo"-->
-<!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor3"-->
-<!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor3"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor3" />-->
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="6dp"-->
+        <!--            android:text="@string/mark_ruffalo"-->
+        <!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor3"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor3"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor3" />-->
 
-<!--        <com.google.android.material.imageview.ShapeableImageView-->
-<!--            android:id="@+id/fmd_iv_actor4"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/chris_hemsworth"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/fmd_iv_actor1"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/fmd_v_guideline_screen_end"-->
-<!--            app:layout_constraintHorizontal_bias="0.5"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor3"-->
-<!--            app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"-->
-<!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/fmd_iv_actor4"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:scaleType="centerCrop"-->
+        <!--            android:src="@drawable/chris_hemsworth"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/fmd_iv_actor1"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/fmd_v_guideline_screen_end"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/fmd_iv_actor3"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/fmd_iv_actor1"-->
+        <!--            app:shapeAppearanceOverlay="@style/ActorImageViewStyle" />-->
 
-<!--        <TextView-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="6dp"-->
-<!--            android:text="@string/chris_hemsworth"-->
-<!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
-<!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor4"-->
-<!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor4"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor4" />-->
+        <!--        <TextView-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="6dp"-->
+        <!--            android:text="@string/chris_hemsworth"-->
+        <!--            android:textAppearance="@style/ActorNameTextViewStyle"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/fmd_iv_actor4"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/fmd_iv_actor4"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/fmd_iv_actor4" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fmd_rv_actors"
@@ -288,10 +288,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            tools:listitem="@layout/view_holder_actor"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fmd_tv_cast_title"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fmd_tv_cast_title"
+            tools:listitem="@layout/view_holder_actor" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -17,13 +17,10 @@ import com.bumptech.glide.Glide
 class MovieDetailFragment : Fragment() {
     private var mListener: OnBackButtonPressedListener? = null
 
-    private var actorsRecyclerView: RecyclerView? = null
+    private val actorsAdapter: ActorsListAdapter = ActorsListAdapter()
     private var actors = listOf<Actor>()
     private lateinit var movie: Movie
 
-    interface OnBackButtonPressedListener {
-        fun onBackButtonPressed()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +49,7 @@ class MovieDetailFragment : Fragment() {
         movieTitle.text = movie.nameMovie
         tagLine.text = movie.movieGenre
         rating.rating = movie.rating
-        reviews.text = "${movie.reviews} REVIEWS"
+        reviews.text = getString(R.string.reviews, movie.reviews)
         storyline.text = movie.description
 
         Glide
@@ -62,13 +59,15 @@ class MovieDetailFragment : Fragment() {
             .fallback(R.drawable.ic_unloaded_image)
             .into(poster)
 
-        actorsRecyclerView = view.findViewById(R.id.fmd_rv_actors)
-        actorsRecyclerView?.adapter = ActorsListAdapter()
-        actorsRecyclerView?.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.HORIZONTAL, false)
-        (actorsRecyclerView?.adapter as? ActorsListAdapter)?.apply {
-            bindActors(actors)
+        view.findViewById<RecyclerView>(R.id.fmd_rv_actors).apply {
+            adapter = actorsAdapter
+            layoutManager = LinearLayoutManager(
+                activity?.applicationContext,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
         }
-
+        actorsAdapter.bindActors(actors)
     }
 
     override fun onAttach(context: Context) {
@@ -80,17 +79,21 @@ class MovieDetailFragment : Fragment() {
 
     override fun onDetach() {
         mListener = null
-        actorsRecyclerView = null
         super.onDetach()
     }
 
     companion object {
         private const val KEY_MOVIE_ID = "movieId"
         private const val TAG = "MovieDetailFragment"
+
         fun newInstance(idMovie: Int) = MovieDetailFragment().apply {
             arguments = Bundle().apply {
                 putInt(KEY_MOVIE_ID, idMovie)
             }
         }
+    }
+
+    interface OnBackButtonPressedListener {
+        fun onBackButtonPressed()
     }
 }

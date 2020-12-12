@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 
-class MoviesListAdapter (var listener: OnItemClickListener) : RecyclerView.Adapter<MovieViewHolder>() {
+class MoviesListAdapter(var listener: OnItemClickListener) :
+    RecyclerView.Adapter<MovieViewHolder>() {
 
     private var movies: List<Movie> = listOf()
 
@@ -23,21 +24,21 @@ class MoviesListAdapter (var listener: OnItemClickListener) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(movies[position])
+        val movie = movies[position]
+        holder.bind(movie)
         holder.itemView.setOnClickListener {
-            listener.onClick(movies[position])
+            listener.onClick(movie)
         }
         val likeButton: ImageView = holder.itemView.findViewById(R.id.vhm_iv_like)
         likeButton.setOnClickListener {
-            listener.onLikeClick(position, movies[position].id, movies[position].like)
+            listener.onLikeClick(position, movie.id, movie.like)
         }
     }
 
     override fun getItemCount(): Int = movies.size
 
-    fun bindMovies(newMovies: List<Movie>){
+    fun bindMovies(newMovies: List<Movie>) {
         movies = newMovies
-        notifyDataSetChanged()
     }
 
 }
@@ -55,8 +56,8 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(movie: Movie) {
         movieTitle.text = movie.nameMovie
-        movieDuration.text = "${movie.movieDuration} MIN"
-        reviewsNumber.text = "${movie.reviews} REVIEWS"
+        movieDuration.text = context.getString(R.string.minutes, movie.movieDuration)
+        reviewsNumber.text = context.getString(R.string.reviews, movie.reviews)
         ageLimit.text = movie.rated
         tagLine.text = movie.movieGenre
         movieRating.rating = movie.rating

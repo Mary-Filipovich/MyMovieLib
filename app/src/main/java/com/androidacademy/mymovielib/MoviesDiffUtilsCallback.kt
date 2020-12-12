@@ -2,15 +2,15 @@ package com.androidacademy.mymovielib
 
 import androidx.recyclerview.widget.DiffUtil
 
-class MoviesDiffUtilsCallback (
+class MoviesDiffUtilsCallback(
     private val oldList: List<Movie>,
     private val newList: List<Movie>
-        ) : DiffUtil.Callback() {
+) : DiffUtil.Callback() {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldItem = oldList[oldItemPosition]
         val newItem = newList[newItemPosition]
-        return oldItem.like == newItem.like
+        return oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

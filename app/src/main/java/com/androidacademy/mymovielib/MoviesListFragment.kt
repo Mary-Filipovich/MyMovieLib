@@ -1,12 +1,16 @@
 package com.androidacademy.mymovielib
 
 import android.content.Context
+import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -31,6 +35,12 @@ class MoviesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         movieRecyclerView = view.findViewById(R.id.fml_rv_movies)
+        movieRecyclerView?.layoutManager = GridLayoutManager(
+            activity?.applicationContext,
+            resources.getInteger(R.integer.spanCount),
+            GridLayoutManager.VERTICAL,
+            false
+        )
         adapter = MoviesListAdapter(cardClickListener)
         movieRecyclerView?.adapter = adapter
     }
@@ -38,10 +48,6 @@ class MoviesListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         updateMovies()
-    }
-
-    private fun updateMovies() {
-        adapter.bindMovies(testMoviesData)
     }
 
     override fun onAttach(context: Context) {
@@ -57,6 +63,10 @@ class MoviesListFragment : Fragment() {
         super.onDetach()
     }
 
+    private fun updateMovies() {
+        adapter.bindMovies(testMoviesData)
+    }
+
     private val cardClickListener = object : OnItemClickListener {
         override fun onClick(movie: Movie) {
             listener?.onCardClick(movie.id)
@@ -64,7 +74,8 @@ class MoviesListFragment : Fragment() {
 
         override fun onLikeClick(position: Int, movieId: Int, isLiked: Boolean) {
             val newList: MutableList<Movie> = testMoviesData.toMutableList()
-            newList[position] = testMoviesData.first { movie -> movie.id == movieId }.copy(like = !isLiked)
+            newList[position] =
+                testMoviesData.first { movie -> movie.id == movieId }.copy(like = !isLiked)
             adapter.bindMovies(newList)
             val diffCallback = MoviesDiffUtilsCallback(testMoviesData, newList)
             val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(diffCallback)
