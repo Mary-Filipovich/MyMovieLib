@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.androidacademy.mymovielib.data.Actor
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.imageview.ShapeableImageView
@@ -46,11 +47,11 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val actorPhoto: ShapeableImageView = itemView.findViewById(R.id.vha_iv_actor)
 
     fun bind(actor: Actor) {
-        actorName.text = actor.nameActor
+        actorName.text = actor.name
 
         Glide
             .with(context)
-            .load(actor.photoActor)
+            .load(actor.picture)
             .apply(imageOption)
             .into(actorPhoto)
     }

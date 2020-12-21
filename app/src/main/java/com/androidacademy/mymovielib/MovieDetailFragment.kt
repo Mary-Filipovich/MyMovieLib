@@ -12,15 +12,21 @@ import androidx.appcompat.widget.AppCompatRatingBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androidacademy.mymovielib.data.Actor
+import com.androidacademy.mymovielib.data.Movie
+import com.androidacademy.mymovielib.data.loadMovies
 import com.bumptech.glide.Glide
+import kotlinx.coroutines.*
 
 class MovieDetailFragment : Fragment() {
     private var mListener: OnBackButtonPressedListener? = null
 
     private val actorsAdapter: ActorsListAdapter = ActorsListAdapter()
     private var actors = listOf<Actor>()
-    private lateinit var movie: Movie
+    private var movie: Movie? = null
+    private var coroutineScope = createScope()
 
+    private fun createScope(): CoroutineScope = CoroutineScope(Job() + Dispatchers.Default)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,8 +37,11 @@ class MovieDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        movie = TestMoviesData().getMovieById(requireArguments().getInt(KEY_MOVIE_ID))
-        actors = movie.listOfActors
+//        val movieId = requireArguments().getInt(KEY_MOVIE_ID)
+
+        movie = requireArguments().getParcelable(KEY_MOVIE)
+        actors = movie?.actors!!
+
 //        Log.d(TAG, "movie: $movie")
 
         val backButton: TextView = view.findViewById(R.id.fmd_tv_back_button)
@@ -45,19 +54,21 @@ class MovieDetailFragment : Fragment() {
         val storyline: TextView = view.findViewById(R.id.fmd_tv_storyline)
 
         backButton.setOnClickListener { mListener?.onBackButtonPressed() }
-        ageLimit.text = movie.rated
-        movieTitle.text = movie.nameMovie
-        tagLine.text = movie.movieGenre
-        rating.rating = movie.rating
-        reviews.text = getString(R.string.reviews, movie.reviews)
-        storyline.text = movie.description
+        if (movie != null) {
+            ageLimit.text = getString(R.string.age_limit, movie!!.minimumAge)
+            movieTitle.text = movie!!.title
+            tagLine.text = movie!!.genres.joinToString(", ") { it.name }
+            rating.rating = movie!!.ratings / 2
+            reviews.text = getString(R.string.reviews, movie!!.numberOfRatings)
+            storyline.text = movie!!.overview
 
-        Glide
-            .with(this)
-            .load(movie.detailPoster)
-            .placeholder(R.drawable.image_poster)
-            .fallback(R.drawable.ic_unloaded_image)
-            .into(poster)
+            Glide
+                .with(this)
+                .load(movie!!.backdrop)
+                .placeholder(R.drawable.image_poster)
+                .fallback(R.drawable.ic_unloaded_image)
+                .into(poster)
+        }
 
         view.findViewById<RecyclerView>(R.id.fmd_rv_actors).apply {
             adapter = actorsAdapter
@@ -84,11 +95,13 @@ class MovieDetailFragment : Fragment() {
 
     companion object {
         private const val KEY_MOVIE_ID = "movieId"
+        private const val KEY_MOVIE = "movie"
         private const val TAG = "MovieDetailFragment"
 
-        fun newInstance(idMovie: Int) = MovieDetailFragment().apply {
+        fun newInstance(movie: Movie) = MovieDetailFragment().apply {
             arguments = Bundle().apply {
-                putInt(KEY_MOVIE_ID, idMovie)
+//                putInt(KEY_MOVIE_ID, idMovie)
+                putParcelable(KEY_MOVIE, movie)
             }
         }
     }

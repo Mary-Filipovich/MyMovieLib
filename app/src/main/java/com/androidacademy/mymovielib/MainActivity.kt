@@ -2,6 +2,7 @@ package com.androidacademy.mymovielib
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.androidacademy.mymovielib.data.Movie
 
 class MainActivity : AppCompatActivity(), MoviesListFragment.OnCardClickListener,
     MovieDetailFragment.OnBackButtonPressedListener {
@@ -20,11 +21,11 @@ class MainActivity : AppCompatActivity(), MoviesListFragment.OnCardClickListener
         }
     }
 
-    override fun onCardClick(idMovie: Int) {
+    override fun onCardClick(movie: Movie) {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.am_container,
-                MovieDetailFragment.newInstance(idMovie),
+                MovieDetailFragment.newInstance(movie),
                 MOVIE_DETAILS_FRAGMENT_TAG
             )
             .addToBackStack(null)

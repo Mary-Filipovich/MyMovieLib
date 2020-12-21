@@ -23,4 +23,5 @@
 
     <string name="reviews">%1d REVIEWS</string>
     <string name="minutes">%1d MIN</string>
+    <string name="age_limit">%1d+</string>
 </resources>
