@@ -23,8 +23,7 @@ class MovieDetailFragment : Fragment() {
 
     private val actorsAdapter: ActorsListAdapter = ActorsListAdapter()
     private var actors = listOf<Actor>()
-    private var movie: Movie? = null
-    private var coroutineScope = createScope()
+    private lateinit var movie: Movie
 
     private fun createScope(): CoroutineScope = CoroutineScope(Job() + Dispatchers.Default)
 
@@ -37,12 +36,8 @@ class MovieDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        val movieId = requireArguments().getInt(KEY_MOVIE_ID)
-
-        movie = requireArguments().getParcelable(KEY_MOVIE)
-        actors = movie?.actors!!
-
-//        Log.d(TAG, "movie: $movie")
+        movie = requireNotNull(arguments?.getParcelable(KEY_MOVIE))
+        actors = movie.actors
 
         val backButton: TextView = view.findViewById(R.id.fmd_tv_back_button)
         val poster: ImageView = view.findViewById(R.id.fmd_iv_big_poster)
@@ -54,21 +49,19 @@ class MovieDetailFragment : Fragment() {
         val storyline: TextView = view.findViewById(R.id.fmd_tv_storyline)
 
         backButton.setOnClickListener { mListener?.onBackButtonPressed() }
-        if (movie != null) {
-            ageLimit.text = getString(R.string.age_limit, movie!!.minimumAge)
-            movieTitle.text = movie!!.title
-            tagLine.text = movie!!.genres.joinToString(", ") { it.name }
-            rating.rating = movie!!.ratings / 2
-            reviews.text = getString(R.string.reviews, movie!!.numberOfRatings)
-            storyline.text = movie!!.overview
+        ageLimit.text = getString(R.string.age_limit, movie.minimumAge)
+        movieTitle.text = movie.title
+        tagLine.text = movie.genres.joinToString(", ") { it.name }
+        rating.rating = movie.ratings / 2
+        reviews.text = getString(R.string.reviews, movie.numberOfRatings)
+        storyline.text = movie.overview
 
-            Glide
-                .with(this)
-                .load(movie!!.backdrop)
-                .placeholder(R.drawable.image_poster)
-                .fallback(R.drawable.ic_unloaded_image)
-                .into(poster)
-        }
+        Glide
+            .with(this)
+            .load(movie.backdrop)
+            .placeholder(R.drawable.image_poster)
+            .fallback(R.drawable.ic_unloaded_image)
+            .into(poster)
 
         view.findViewById<RecyclerView>(R.id.fmd_rv_actors).apply {
             adapter = actorsAdapter
@@ -94,13 +87,11 @@ class MovieDetailFragment : Fragment() {
     }
 
     companion object {
-        private const val KEY_MOVIE_ID = "movieId"
         private const val KEY_MOVIE = "movie"
         private const val TAG = "MovieDetailFragment"
 
         fun newInstance(movie: Movie) = MovieDetailFragment().apply {
             arguments = Bundle().apply {
-//                putInt(KEY_MOVIE_ID, idMovie)
                 putParcelable(KEY_MOVIE, movie)
             }
         }

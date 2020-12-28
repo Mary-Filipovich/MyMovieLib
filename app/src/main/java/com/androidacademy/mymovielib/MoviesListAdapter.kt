@@ -43,7 +43,6 @@ class MoviesListAdapter(var listener: OnItemClickListener) :
 
     fun bindMovies(newMovies: List<Movie>) {
         movies = newMovies
-        notifyDataSetChanged()
     }
 
 }

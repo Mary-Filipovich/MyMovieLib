@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidacademy.mymovielib.data.Movie
 import com.androidacademy.mymovielib.data.loadMovies
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 class MoviesListFragment : Fragment() {
@@ -30,7 +27,7 @@ class MoviesListFragment : Fragment() {
 
     private var coroutineScope = createScope()
 
-    private fun createScope(): CoroutineScope = CoroutineScope(Job() + Dispatchers.Default)
+    private fun createScope(): CoroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,10 +49,6 @@ class MoviesListFragment : Fragment() {
         movieRecyclerView?.adapter = adapter
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnCardClickListener) {
@@ -75,8 +68,8 @@ class MoviesListFragment : Fragment() {
     }
 
     private fun loadListMovies(){
-        coroutineScope.launch (Dispatchers.Main) {
-            moviesListFromJson = loadMovies(this@MoviesListFragment.requireContext())
+        coroutineScope.launch {
+            moviesListFromJson = loadMovies(requireContext())
             adapter.bindMovies(moviesListFromJson)
         }
     }
@@ -97,6 +90,11 @@ class MoviesListFragment : Fragment() {
 //            testMoviesData = newList
         }
 
+    }
+
+    override fun onDestroyView() {
+        coroutineScope.cancel()
+        super.onDestroyView()
     }
 
     companion object {
