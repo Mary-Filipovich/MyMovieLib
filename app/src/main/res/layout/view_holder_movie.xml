@@ -109,7 +109,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/amd_tv_movie_title_text"
-                app:layout_constraintBottom_toTopOf="@id/vhm_tv_duration"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:layout_constraintTop_toBottomOf="@id/vhm_siv_card_poster"
                 app:layout_constraintEnd_toEndOf="@id/vhm_v_card"
                 app:layout_constraintStart_toStartOf="@id/vhm_v_card" />
 
@@ -119,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fml_tv_text_duration"
-                app:layout_constraintBottom_toBottomOf="@id/vhm_v_card"
+                app:layout_constraintTop_toBottomOf="@id/vhm_tv_movie_title"
                 app:layout_constraintStart_toStartOf="@id/vhm_v_card" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

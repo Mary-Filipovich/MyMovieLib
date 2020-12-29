@@ -1,6 +1,7 @@
 package com.androidacademy.mymovielib
 
 import androidx.recyclerview.widget.DiffUtil
+import com.androidacademy.mymovielib.data.Movie
 
 class MoviesDiffUtilsCallback(
     private val oldList: List<Movie>,

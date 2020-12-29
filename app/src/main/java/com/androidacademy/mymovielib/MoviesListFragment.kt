@@ -1,29 +1,33 @@
 package com.androidacademy.mymovielib
 
 import android.content.Context
-import android.content.pm.ActivityInfo
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androidacademy.mymovielib.data.Movie
+import com.androidacademy.mymovielib.data.loadMovies
+import kotlinx.coroutines.*
 
 
 class MoviesListFragment : Fragment() {
 
     interface OnCardClickListener {
-        fun onCardClick(idMovie: Int)
+        fun onCardClick(idMovie: Movie)
     }
 
     private var movieRecyclerView: RecyclerView? = null
-    private var testMoviesData = TestMoviesData().getMoviesList()
+//    private var testMoviesData = TestMoviesData().getMoviesList()
+    private var moviesListFromJson: List<Movie> = ArrayList()
     private var listener: OnCardClickListener? = null
     private lateinit var adapter: MoviesListAdapter
+
+    private var coroutineScope = createScope()
+
+    private fun createScope(): CoroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,11 +49,6 @@ class MoviesListFragment : Fragment() {
         movieRecyclerView?.adapter = adapter
     }
 
-    override fun onStart() {
-        super.onStart()
-        updateMovies()
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnCardClickListener) {
@@ -63,26 +62,39 @@ class MoviesListFragment : Fragment() {
         super.onDetach()
     }
 
-    private fun updateMovies() {
-        adapter.bindMovies(testMoviesData)
+    override fun onResume() {
+        super.onResume()
+        loadListMovies()
+    }
+
+    private fun loadListMovies(){
+        coroutineScope.launch {
+            moviesListFromJson = loadMovies(requireContext())
+            adapter.bindMovies(moviesListFromJson)
+        }
     }
 
     private val cardClickListener = object : OnItemClickListener {
         override fun onClick(movie: Movie) {
-            listener?.onCardClick(movie.id)
+            listener?.onCardClick(movie)
         }
 
         override fun onLikeClick(position: Int, movieId: Int, isLiked: Boolean) {
-            val newList: MutableList<Movie> = testMoviesData.toMutableList()
-            newList[position] =
-                testMoviesData.first { movie -> movie.id == movieId }.copy(like = !isLiked)
-            adapter.bindMovies(newList)
-            val diffCallback = MoviesDiffUtilsCallback(testMoviesData, newList)
-            val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(diffCallback)
-            diffResult.dispatchUpdatesTo(adapter)
-            testMoviesData = newList
+//            val newList: MutableList<Movie> = testMoviesData.toMutableList()
+//            newList[position] =
+//                testMoviesData.first { movie -> movie.id == movieId }.copy(like = !isLiked)
+//            adapter.bindMovies(newList)
+//            val diffCallback = MoviesDiffUtilsCallback(testMoviesData, newList)
+//            val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(diffCallback)
+//            diffResult.dispatchUpdatesTo(adapter)
+//            testMoviesData = newList
         }
 
+    }
+
+    override fun onDestroyView() {
+        coroutineScope.cancel()
+        super.onDestroyView()
     }
 
     companion object {
