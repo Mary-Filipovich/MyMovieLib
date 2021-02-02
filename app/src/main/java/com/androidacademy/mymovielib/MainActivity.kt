@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity(), MoviesListFragment.OnCardClickListener
         }
     }
 
-    override fun onCardClick(movie: Movie) {
+    override fun onCardClick(movieId: Int) {
         supportFragmentManager.beginTransaction()
             .replace(
                 R.id.am_container,
-                MovieDetailFragment.newInstance(movie),
+                MovieDetailFragment.newInstance(movieId),
                 MOVIE_DETAILS_FRAGMENT_TAG
             )
             .addToBackStack(null)
