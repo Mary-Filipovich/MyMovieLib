@@ -103,7 +103,8 @@ internal fun parseMovies(
             },
             actors = jsonMovie.actors.map {
                 actorsMap[it] ?: throw IllegalArgumentException("Actor not found")
-            }
+            },
+            like = false
         )
     }
 }

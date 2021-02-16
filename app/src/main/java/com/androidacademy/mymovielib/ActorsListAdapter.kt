@@ -27,7 +27,7 @@ class ActorsListAdapter : RecyclerView.Adapter<ActorViewHolder>() {
 
     override fun getItemCount(): Int = actors.size
 
-    fun bindActors(newActors: List<Actor>) {
+    fun submitList(newActors: List<Actor>) {
         actors = newActors
         notifyDataSetChanged()
     }

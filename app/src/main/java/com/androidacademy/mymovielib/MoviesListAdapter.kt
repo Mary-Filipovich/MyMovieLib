@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatRatingBar
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.androidacademy.mymovielib.data.Movie
 import com.bumptech.glide.Glide
@@ -31,17 +32,20 @@ class MoviesListAdapter(var listener: OnItemClickListener) :
         val movie = movies[position]
         holder.bind(movie)
         holder.itemView.setOnClickListener {
-            listener.onClick(movie)
+            listener.onClick(movie.id)
         }
         val likeButton: ImageView = holder.itemView.findViewById(R.id.vhm_iv_like)
         likeButton.setOnClickListener {
-//            listener.onLikeClick(position, movie.id, movie.like)
+            listener.onLikeClick(position, movie.id, !movie.like)
         }
     }
 
     override fun getItemCount(): Int = movies.size
 
-    fun bindMovies(newMovies: List<Movie>) {
+    fun submitList(newMovies: List<Movie>) {
+        val diffCallback = MoviesDiffUtilsCallback(movies, newMovies)
+        val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(diffCallback)
+        diffResult.dispatchUpdatesTo(this)
         movies = newMovies
     }
 
@@ -66,12 +70,12 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         tagLine.text = movie.genres.joinToString(", ") { it.name }
         movieRating.rating = movie.ratings/2
 
-//        likeButton.setColorFilter(
-//            if (movie.like) ContextCompat.getColor(
-//                itemView.context,
-//                R.color.radical_red
-//            ) else ContextCompat.getColor(itemView.context, R.color.white_75_opacity)
-//        )
+        likeButton.setColorFilter(
+            if (movie.like) ContextCompat.getColor(
+                itemView.context,
+                R.color.radical_red
+            ) else ContextCompat.getColor(itemView.context, R.color.white_75_opacity)
+        )
 
         Glide
             .with(context)
@@ -87,6 +91,6 @@ private val RecyclerView.ViewHolder.context
     get() = this.itemView.context
 
 interface OnItemClickListener {
-    fun onClick(movie: Movie)
+    fun onClick(movieId: Int)
     fun onLikeClick(position: Int, movieId: Int, isLiked: Boolean)
 }
